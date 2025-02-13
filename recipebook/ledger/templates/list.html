@@ -2,7 +2,6 @@
 
 {% block title %}Recipe list{% endblock %}
 
-{% load static %}
 
 {% block content %}
 
@@ -11,8 +10,8 @@
     <h2> <a href={{ recipe.link }}>{{ recipe.name }}</a> </h2>
     <ul>
         {% for i in recipe.ingredients %}
-        <li>{{ i.name }} ( {{ i.quantity }} )</li>
-    {% endfor %}
+            <li>{{ i.name }} ( {{ i.quantity }} )</li>
+        {% endfor %}
     </ul>
 {% endfor %}
 
