@@ -8,9 +8,10 @@ class RecipeListView(ListView):
     template_name = 'list.html'
 
 class RecipeDetailView(DetailView):
-    model = Ingredient
+    model = Recipe
     template_name = 'recipe.html'
     
+#TODO: clean this up
 def recipelist(request):
     ctx = {
         "recipes": [
