@@ -35,3 +35,12 @@ class RecipeIngredient(models.Model):
                                related_name='ingredients',
                                on_delete=models.SET_NULL,
                                null=True,)
+
+
+class RecipeImage(models.Model):
+    image = models.ImageField(null=True, upload_to='images') #TODO make static folder
+    description = models.CharField(max_length=255)
+    recipe = models.ForeignKey(Recipe,
+                               related_name='recipe',
+                               on_delete=models.SET_NULL,
+                               null=True)

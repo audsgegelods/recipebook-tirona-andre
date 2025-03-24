@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Ingredient, Recipe, RecipeIngredient
+from .models import Ingredient, Recipe, RecipeIngredient, RecipeImage
 
 
 class RecipeIngredientInline(admin.TabularInline):
@@ -9,6 +9,7 @@ class RecipeIngredientInline(admin.TabularInline):
 class RecipeAdmin(admin.ModelAdmin):
     model = Recipe
     inlines = [RecipeIngredientInline]
+    image = RecipeImage #TODO ???
 
 
 class IngredientAdmin(admin.ModelAdmin):

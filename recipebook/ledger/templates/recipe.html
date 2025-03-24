@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Recipe{% endblock %}
 
 
 {% block content %}
-<h3>Recipe Details</h3>
-<h2>{{ recipe.name }}</h2>
-Recipe by: {{ recipe.author }}
-<ul>
-    {% for ingredient in recipe.ingredients.all %}
-        <li>{{ ingredient.ingredient.name }} ( {{ ingredient.quantity }} )</li>
-    {% endfor %}
-</ul>
+    <h3>Recipe Details</h3>
+    <h2>{{ recipe.name }}</h2>
+    Recipe by: {{ recipe.author }}
+    <ul>
+        {% for ingredient in recipe.ingredients.all %}
+            <li>{{ ingredient.ingredient.name }} ( {{ ingredient.quantity }} )</li>
+        {% endfor %}
+    </ul>
+
+    {% if object.image %}
+    <img src="{{ object.image_url}}" alt="">
+    {% endif %}
+    
 {% endblock %}
