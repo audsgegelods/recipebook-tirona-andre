@@ -38,15 +38,12 @@ class RecipeIngredient(models.Model):
 
 
 class RecipeImage(models.Model):
-    image = models.ImageField(null=True, upload_to='images') #TODO make static folder
+    image = models.ImageField(null=False, upload_to='images')
     description = models.CharField(max_length=255)
     recipe = models.ForeignKey(Recipe,
                                related_name='image',
                                on_delete=models.SET_NULL,
                                null=True)
-    
-    def __str__(self):
-        return self.name
     
     def get_absolute_url(self):
         return reverse('ledger:recipe-detail', args=[self.recipe.pk])

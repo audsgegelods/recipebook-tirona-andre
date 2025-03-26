@@ -12,7 +12,8 @@
             <li>{{ ingredient.ingredient.name }} ( {{ ingredient.quantity }} )</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'ledger:image-add' pk=object.pk %}">Create Image</a>
+    <a href="{% url 'ledger:image-add' pk=object.pk %}">Add Image</a>
+    <br>
     {% for image in object.image.all %}
         {% if image %}
         <img src="{{ image.image.url }}" alt="{{ image.description }}">
