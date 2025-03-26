@@ -1,5 +1,5 @@
-from .models import Recipe
-from .forms import RecipeForm
+from .models import Recipe, RecipeImage
+from .forms import RecipeForm, ImageForm
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView
@@ -21,6 +21,13 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = Recipe
     form_class = RecipeForm
     template_name = 'recipe_add.html'
+    redirect_field_name = 'login.html'
+
+
+class ImageCreateView(LoginRequiredMixin, CreateView):
+    model = RecipeImage
+    form_class = ImageForm
+    template_name = 'recipe_image.html'
     redirect_field_name = 'login.html'
 
 

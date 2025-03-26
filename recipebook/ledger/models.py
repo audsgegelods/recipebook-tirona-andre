@@ -41,6 +41,12 @@ class RecipeImage(models.Model):
     image = models.ImageField(null=True, upload_to='images') #TODO make static folder
     description = models.CharField(max_length=255)
     recipe = models.ForeignKey(Recipe,
-                               related_name='recipe',
+                               related_name='image',
                                on_delete=models.SET_NULL,
                                null=True)
+    
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse('ledger:image-add', args=[self.pk])
